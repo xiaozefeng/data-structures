@@ -1,7 +1,7 @@
 package org.mickey.data.structure;
 
 import org.junit.Test;
-import org.mickey.data.structure.linkedlist.LinkedListStack;
+import org.mickey.data.structure.stack.LinkedListStack;
 import org.mickey.data.structure.stack.ArrayStack;
 import org.mickey.data.structure.stack.Stack;
 

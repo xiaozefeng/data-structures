@@ -34,7 +34,7 @@ public class LinkedList<E> {
         }
     }
 
-    private Node dummyHead;
+    private final Node dummyHead;
 
     private int size;
 
@@ -157,6 +157,36 @@ public class LinkedList<E> {
         return remove(size - 1);
     }
 
+    public void removeElement(E e) {
+        if (isEmpty())
+            throw new IllegalArgumentException("Remove failed. The LinkedList is empty.");
+        // dummyHead.next = removeElement(dummyHead.next, e);
+        Node pre = dummyHead;
+        while (pre.next != null) {
+            if (pre.next.e.equals(e)) {
+                Node del = pre.next;
+                pre.next = del.next;
+                del.next = null;
+                size--;
+            }else {
+                pre = pre.next;
+            }
+        }
+
+    }
+
+    private Node removeElement(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
+        if (e.equals(node.e)) {
+            return node.next;
+        } else {
+            node.next = removeElement(node.next, e);
+        }
+        return node;
+    }
+
 
     @Override
     public String toString() {
@@ -178,9 +208,13 @@ public class LinkedList<E> {
         linkedList.addFirst(3);
         System.out.println(linkedList);
 
-        linkedList.removeFirst();
-        System.out.println(linkedList);
-        linkedList.removeLast();
+        // linkedList.removeFirst();
+        // System.out.println(linkedList);
+        // linkedList.removeLast();
+        // System.out.println(linkedList);
+
+        linkedList.removeElement(1);
+        linkedList.removeElement(2);
         System.out.println(linkedList);
     }
 }

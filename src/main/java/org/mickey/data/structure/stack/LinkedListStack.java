@@ -1,6 +1,6 @@
-package org.mickey.data.structure.linkedlist;
+package org.mickey.data.structure.stack;
 
-import org.mickey.data.structure.stack.Stack;
+import org.mickey.data.structure.linkedlist.LinkedList;
 
 /**
  * @author mickey
