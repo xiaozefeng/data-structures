@@ -111,7 +111,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
     }
 
     @Override
-    public V remove(K k) {
+    public void remove(K k) {
         if (isEmpty())
             throw new IllegalArgumentException("Can't Remove Element from empty map!");
 
@@ -122,11 +122,10 @@ public class LinkedListMap<K, V> implements Map<K, V> {
                 pre.next = del.next;
                 del.next = null;
                 size--;
-                return del.v;
+                return;
             } else
                 pre = pre.next;
         }
-        return null;
 
         // 递归删除的逻辑
         //dummyHead.next = remove(dummyHead.next, k);

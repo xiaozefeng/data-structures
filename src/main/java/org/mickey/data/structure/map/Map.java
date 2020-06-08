@@ -16,7 +16,7 @@ public interface Map<K, V> {
 
     boolean isEmpty();
 
-    V remove(K k);
+    void remove(K k);
 
     boolean contains(K k);
 
