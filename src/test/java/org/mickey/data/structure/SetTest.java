@@ -7,6 +7,7 @@ import org.mickey.data.structure.set.LinkedListSet;
 import org.mickey.data.structure.set.Set;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author mickey
@@ -23,6 +24,25 @@ public class SetTest {
 
         Set<String> linkedListSet = new LinkedListSet<>();
         System.out.println("linkedListSet time:" + time(linkedListSet, filename));
+    }
+
+    @Test
+    public void testSetTime2(){
+        long opCount = 100000;
+        Set<Integer> bstSet = new BSTSet<>();
+        System.out.println("bst set:"+time2(bstSet, opCount));
+        Set<Integer> linkedListSet = new LinkedListSet<>();
+        System.out.println("linked list set:" + time2(linkedListSet, opCount));
+    }
+
+    private static double time2(Set<Integer> set, long opCount) {
+        long start = System.nanoTime();
+        Random random = new Random();
+        for (int i = 0; i < opCount; i++)
+            set.add(random.nextInt(Integer.MAX_VALUE));
+
+        long end= System.nanoTime();
+        return (end - start) / 1000000000.0;
     }
 
 
