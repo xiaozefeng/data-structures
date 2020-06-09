@@ -32,6 +32,14 @@ public class Array<E> {
         return size == 0;
     }
 
+    public void swap(int i, int j) {
+        if ((i < 0 || i >= size) || j < 0 || j >= size)
+            throw new IllegalArgumentException("illegal index");
+        Object t = data[i];
+        data[i] = data[j];
+        data[j] = t;
+    }
+
     public void addLast(E e) {
         this.add(size, e);
     }
