@@ -9,7 +9,7 @@ import java.util.Random;
  * @date 6/10/20 00:39
  */
 public class MaxHeap<E extends Comparable<E>> {
-    private Array<E> data;
+    private final Array<E> data;
 
     public MaxHeap(int capacity) {
         data = new Array<>(capacity);
