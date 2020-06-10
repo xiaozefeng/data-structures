@@ -20,6 +20,16 @@ public class Array<E> {
         size = 0;
     }
 
+    public Array(Object[] arr){
+        if (arr == null)
+            throw new NullPointerException("arr is null!");
+        if (arr.length == 0)
+            throw new IllegalArgumentException("cant initialize array from empty arr");
+
+        data = Arrays.copyOf(arr, arr.length);
+        size = data.length;
+    }
+
     public int getSize() {
         return size;
     }

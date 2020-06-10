@@ -19,6 +19,15 @@ public class MaxHeap<E extends Comparable<E>> {
         data = new Array<>();
     }
 
+    public MaxHeap(E[] arr) {
+        if (arr == null || arr.length == 0)
+            throw new IllegalArgumentException("arr is null");
+
+        data = new Array<>(arr);
+        for (int i = parent(arr.length - 1); i >= 0; i--)
+            siftDown(i);
+    }
+
     public int getSize() {
         return data.getSize();
     }
@@ -87,6 +96,15 @@ public class MaxHeap<E extends Comparable<E>> {
         }
     }
 
+    // 取出堆的最大值，再添加元素e
+    public E replace(E e) {
+        E ret = findMax();
+        data.set(0, e);
+        siftDown(0);
+        return ret;
+    }
+
+
     public static void main(String[] args) {
         int n = 1000000;
         MaxHeap<Integer> heap = new MaxHeap<>();
@@ -99,12 +117,11 @@ public class MaxHeap<E extends Comparable<E>> {
             arr[i] = heap.extraMax();
 
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i-1] < arr[i])
+            if (arr[i - 1] < arr[i])
                 throw new IllegalArgumentException("Error");
         }
 
         System.out.println("Test completed");
-
 
     }
 
