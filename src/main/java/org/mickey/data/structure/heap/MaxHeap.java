@@ -64,7 +64,7 @@ public class MaxHeap<E extends Comparable<E>> {
         siftUp(data.getSize() - 1);
     }
 
-    private E findMax() {
+    public E findMax() {
         if (isEmpty())
             throw new IllegalArgumentException("Can't find max when heap is empty!");
 
